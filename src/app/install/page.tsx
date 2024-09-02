@@ -1,7 +1,7 @@
-"use client"
+"use client";
 
 import { useState } from 'react';
-import { useRouter } from 'next/navigation';
+import { useRouter, useSearchParams } from 'next/navigation';
 
 const Install = () => {
     const [dbHost, setDbHost] = useState('');
@@ -10,6 +10,9 @@ const Install = () => {
     const [dbUser, setDbUser] = useState('');
     const [dbPassword, setDbPassword] = useState('');
     const router = useRouter();
+    const searchParams = useSearchParams();  // Access URL search params
+
+    const step = searchParams.get('step');  // Get the value of 'step' from URL
 
     const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
@@ -27,7 +30,8 @@ const Install = () => {
         }
     };
 
-    return (
+    // Conditionally render content based on 'step' parameter
+    return step === '1' ? (
         <div>
             <h1>Database Setup</h1>
             <form onSubmit={handleSubmit}>
@@ -78,6 +82,13 @@ const Install = () => {
                 </label>
                 <button type="submit">Save</button>
             </form>
+        </div>
+    ) : (
+        <div>
+            <h1>Welcome! Please start the installation process.</h1>
+            <a href="/install?step=1">
+                <button type="button">Start Installation</button>
+            </a>
         </div>
     );
 };
