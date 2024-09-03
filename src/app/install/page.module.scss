@@ -1,0 +1,21 @@
+.welcome-wrapper {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+
+  .logo {
+    padding: 2rem 0;
+    width: 100%;
+    justify-content: center;
+    flex-direction: row;
+    text-align: center;
+  }
+
+  .welcome-message-box {
+    border: 1px solid red;
+
+    h1 {
+      color: red;
+    }
+  }
+}

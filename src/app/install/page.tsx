@@ -1,7 +1,8 @@
 "use client";
-
+import styles from "./page.module.scss";
 import { useState } from 'react';
 import { useRouter, useSearchParams } from 'next/navigation';
+import Image from "next/image";
 
 const Install = () => {
     const [dbHost, setDbHost] = useState('');
@@ -84,7 +85,17 @@ const Install = () => {
             </form>
         </div>
     ) : (
-        <div>
+        <div className={styles['welcome-wrapper']}>
+            <div className={styles['logo']}>
+            <Image
+              src="/logo-main-small.png"
+              alt="Picture Pulse Logo"
+            //   className={styles.vercelLogo}
+              width={84}
+              height={84}
+              priority
+            />
+            </div>
             <h1>Welcome! Please start the installation process.</h1>
             <a href="/install?step=1">
                 <button type="button">Start Installation</button>
