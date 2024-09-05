@@ -18,4 +18,45 @@
       color: red;
     }
   }
+
+  .message-box {
+    box-sizing: border-box;
+    margin-left: auto;
+    margin-right: auto;
+    width: 80%;
+    padding: 1.5rem;
+    max-width: 50rem;
+    background-color: #ffffff;
+    color: #444444;
+    box-shadow: 0 1px 25px rgba(0, 0, 0, .13);
+    border-radius: 6px;
+    line-height: 1.5rem;
+  }
+
+  .needed {
+    padding: 2rem;
+    margin-top: 1rem;
+
+    li {
+      padding: 0.5rem;
+    }
+  }
+  .start-btn-wrapper {
+    display: flex;
+    justify-content: center;
+  }
+
+  .start-btn {
+    margin-top: 1rem;
+    background-color: #f7f7f7;
+    color: #000028;
+    padding: 1rem 2rem;
+    border-radius: 6px;
+    cursor: pointer;
+    border: 1px solid #dddddd;
+    box-shadow: 0 1px 0 #ccc;
+  }
+  .start-btn:hover {
+    background-color: #e0e0e0;
+  }
 }
