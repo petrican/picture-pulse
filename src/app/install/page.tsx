@@ -10,6 +10,7 @@ const Install = () => {
   const [dbName, setDbName] = useState("");
   const [dbUser, setDbUser] = useState("");
   const [dbPassword, setDbPassword] = useState("");
+  const [errorMessage, setError] = useState("");
   const router = useRouter();
   const searchParams = useSearchParams(); // Access URL search params
 
@@ -38,6 +39,10 @@ const Install = () => {
 
     if (res.ok) {
       router.push("/"); // Redirect to home page after setup
+    }
+
+    if (res.status === 500) {
+      setError("Could not connect to the database. Please check the credentials.")
     }
   };
 
@@ -124,6 +129,8 @@ const Install = () => {
             </div>
             <div className={styles["db-item-info"]}>Your database password.</div>
           </div>
+
+          {errorMessage ? (<div className={styles["db-errors"]}>{errorMessage}</div>) : null}
               
           <div className={`${styles["db-item"]} ${styles["button-space"]}`}>
             <div className={styles["db-item-text"]}></div>
@@ -131,10 +138,7 @@ const Install = () => {
             <div className={styles["db-item-input"]}>
             <button className={styles["save-button"]} type="submit">Save</button>
             </div>
-          </div>
-
-
-        
+          </div>        
         </form>
       </div>
     </div>
