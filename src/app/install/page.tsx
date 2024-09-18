@@ -1,6 +1,6 @@
 "use client";
 import styles from "./page.module.scss";
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { useRouter, useSearchParams } from "next/navigation";
 import Image from "next/image";
 
@@ -14,6 +14,16 @@ const Install = () => {
   const searchParams = useSearchParams(); // Access URL search params
 
   const step = searchParams.get("step"); // Get the value of 'step' from URL
+
+  // Create a reference to the first input (dbHost)
+  const dbHostInputRef = useRef<HTMLInputElement>(null);
+
+  // Use useEffect to focus on the dbHost input when the component mounts
+  useEffect(() => {
+    if (dbHostInputRef.current) {
+      dbHostInputRef.current.focus();
+    }
+  }, []);
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -57,6 +67,7 @@ const Install = () => {
               <input
                 type="text"
                 value={dbHost}
+                ref={dbHostInputRef}
                 onChange={(e) => setDbHost(e.target.value)}
                 required
               />
