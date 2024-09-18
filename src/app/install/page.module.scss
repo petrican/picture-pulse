@@ -55,6 +55,9 @@
             padding: 0.2rem;
           }
         }
+        .db-item-info {
+          padding-left: 1rem;
+        }
       }
     }
   }
@@ -62,6 +65,10 @@
   .save-button {
     padding: 0.2rem 2rem;
     cursor: pointer;
+  }
+
+  .button-space {
+    margin-top: 1rem;
   }
 
   .needed {

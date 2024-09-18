@@ -61,6 +61,7 @@ const Install = () => {
                 required
               />
             </div>
+            <div className={styles["db-item-info"]}>Usually <i>localhost</i>. Ask the provider if it does not work.</div>
           </div>
 
           <div className={styles["db-item"]}>
@@ -73,6 +74,7 @@ const Install = () => {
                 required
               />
             </div>
+            <div className={styles["db-item-info"]}>The port used to access the database for Picture Pulse.</div>
           </div>
           <div className={styles["db-item"]}>
             <div className={styles["db-item-text"]}>Database Name:</div>
@@ -84,6 +86,7 @@ const Install = () => {
                 required
               />
             </div>
+            <div className={styles["db-item-info"]}>Your database name.</div>
           </div>
           <div className={styles["db-item"]}>
             <div className={styles["db-item-text"]}>Database User:</div>
@@ -95,6 +98,7 @@ const Install = () => {
                 required
               />
             </div>
+            <div className={styles["db-item-info"]}>Your database username.</div>
           </div>
 
           <div className={styles["db-item"]}>
@@ -107,10 +111,10 @@ const Install = () => {
                 required
               />
             </div>
+            <div className={styles["db-item-info"]}>Your database password.</div>
           </div>
               
-
-          <div className={styles["db-item"]}>
+          <div className={`${styles["db-item"]} ${styles["button-space"]}`}>
             <div className={styles["db-item-text"]}></div>
 
             <div className={styles["db-item-input"]}>
