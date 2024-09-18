@@ -28,9 +28,40 @@
     max-width: 50rem;
     background-color: #ffffff;
     color: #444444;
-    box-shadow: 0 1px 25px rgba(0, 0, 0, .13);
+    box-shadow: 0 1px 25px rgba(0, 0, 0, 0.13);
     border-radius: 6px;
     line-height: 1.5rem;
+
+    .form-group {
+      display: flex; 
+      flex-direction: column;
+  
+      .db-item {
+        display: flex;
+        flex-direction: row;
+        flex-grow: 1;
+        margin-bottom: 0.5rem;
+  
+        .db-item-text {
+          margin-left: 1rem;
+          justify-content: left;
+          min-width: 20%;
+        }
+  
+        .db-item-input {
+          margin-left: 1rem;
+          justify-content: center;
+          input {
+            padding: 0.2rem;
+          }
+        }
+      }
+    }
+  }
+
+  .save-button {
+    padding: 0.2rem 2rem;
+    cursor: pointer;
   }
 
   .needed {
@@ -59,4 +90,10 @@
   .start-btn:hover {
     background-color: #e0e0e0;
   }
+
+  .instructions {
+    padding: 1rem 0;
+  }
 }
+
+

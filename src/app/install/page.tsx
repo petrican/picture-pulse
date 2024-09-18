@@ -33,56 +33,95 @@ const Install = () => {
 
   // Conditionally render content based on 'step' parameter
   return step === "1" ? (
-    <div>
-      <h1>Database Setup</h1>
-      <form onSubmit={handleSubmit}>
-        <label>
-          Database Host:
-          <input
-            type="text"
-            value={dbHost}
-            onChange={(e) => setDbHost(e.target.value)}
-            required
-          />
-        </label>
-        <label>
-          Database Port:
-          <input
-            type="number"
-            value={dbPort}
-            onChange={(e) => setDbPort(e.target.value)}
-            required
-          />
-        </label>
-        <label>
-          Database Name:
-          <input
-            type="text"
-            value={dbName}
-            onChange={(e) => setDbName(e.target.value)}
-            required
-          />
-        </label>
-        <label>
-          Database User:
-          <input
-            type="text"
-            value={dbUser}
-            onChange={(e) => setDbUser(e.target.value)}
-            required
-          />
-        </label>
-        <label>
-          Database Password:
-          <input
-            type="password"
-            value={dbPassword}
-            onChange={(e) => setDbPassword(e.target.value)}
-            required
-          />
-        </label>
-        <button type="submit">Save</button>
-      </form>
+    <div className={styles["welcome-wrapper"]}>
+      <div className={styles["logo"]}>
+        <Image
+          src="/logo-main-small.png"
+          alt="Picture Pulse Logo"
+          width={84}
+          height={84}
+          priority
+        />
+      </div>
+      <div className={styles["message-box"]}>
+        <h2>Database Setup</h2>
+        <p className={styles["instructions"]}>
+          Please enter below your database connection details. If you’re not
+          sure about these, contact your host.
+        </p>
+        <form className={styles["form-group"]} onSubmit={handleSubmit}>
+          <div className={styles["db-item"]}>
+            <div className={styles["db-item-text"]}>Database Host:</div>
+
+            <div className={styles["db-item-input"]}>
+              <input
+                type="text"
+                value={dbHost}
+                onChange={(e) => setDbHost(e.target.value)}
+                required
+              />
+            </div>
+          </div>
+
+          <div className={styles["db-item"]}>
+            <div className={styles["db-item-text"]}>Database Port:</div>
+            <div className={styles["db-item-input"]}>
+              <input
+                type="number"
+                value={dbPort}
+                onChange={(e) => setDbPort(e.target.value)}
+                required
+              />
+            </div>
+          </div>
+          <div className={styles["db-item"]}>
+            <div className={styles["db-item-text"]}>Database Name:</div>
+            <div className={styles["db-item-input"]}>
+              <input
+                type="text"
+                value={dbName}
+                onChange={(e) => setDbName(e.target.value)}
+                required
+              />
+            </div>
+          </div>
+          <div className={styles["db-item"]}>
+            <div className={styles["db-item-text"]}>Database User:</div>
+            <div className={styles["db-item-input"]}>
+              <input
+                type="text"
+                value={dbUser}
+                onChange={(e) => setDbUser(e.target.value)}
+                required
+              />
+            </div>
+          </div>
+
+          <div className={styles["db-item"]}>
+            <div className={styles["db-item-text"]}>Database Password:</div>
+            <div className={styles["db-item-input"]}>
+              <input
+                type="password"
+                value={dbPassword}
+                onChange={(e) => setDbPassword(e.target.value)}
+                required
+              />
+            </div>
+          </div>
+              
+
+          <div className={styles["db-item"]}>
+            <div className={styles["db-item-text"]}></div>
+
+            <div className={styles["db-item-input"]}>
+            <button className={styles["save-button"]} type="submit">Save</button>
+            </div>
+          </div>
+
+
+        
+        </form>
+      </div>
     </div>
   ) : (
     <div className={styles["welcome-wrapper"]}>
@@ -107,17 +146,19 @@ const Install = () => {
           <li>Database password</li>
           <li>Database host</li>
         </ol>
-        We’re going to use this information to create a database.json file. If for
-        any reason this automatic file creation doesn’t work, don’t worry. All
-        this does is fill in the database information to a configuration file named database.json under the config folder.
-        If the automatic process does not work you can create a file under config/config.json
-        <div className={styles['start-btn-wrapper']}>
-        <a href="/install?step=1">
-          <button type="button" className={styles['start-btn']}>Start Installation</button>
-        </a>
+        We’re going to use this information to create a database.json file. If
+        for any reason this automatic file creation doesn’t work, don’t worry.
+        All this does is fill in the database information to a configuration
+        file named database.json under the config folder. If the automatic
+        process does not work you can create a file under config/config.json
+        <div className={styles["start-btn-wrapper"]}>
+          <a href="/install?step=1">
+            <button type="button" className={styles["start-btn"]}>
+              Start Installation
+            </button>
+          </a>
         </div>
       </div>
-
     </div>
   );
 };
