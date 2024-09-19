@@ -33,7 +33,7 @@ export async function POST(request: Request) {
             await connection.end(); // Close the connection after checking
 
             // Prepare the data to be written to the file
-            const configData = JSON.stringify({ dbHost, dbPort, dbName, dbUser, dbPassword }, null, 2);
+            const configData = JSON.stringify({ dbHost, dbPort, dbName, dbUser, dbPassword, adminSet: false }, null, 2);
 
             // Write the data to the file
             fs.writeFileSync(configFilePath, configData, 'utf8');
