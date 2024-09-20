@@ -1,0 +1,127 @@
+.welcome-wrapper {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+  
+    .logo {
+      padding: 2rem 0;
+      width: 100%;
+      justify-content: center;
+      flex-direction: row;
+      text-align: center;
+    }
+  
+    .welcome-message-box {
+      border: 1px solid red;
+  
+      h1 {
+        color: red;
+      }
+    }
+  
+    .message-box {
+      box-sizing: border-box;
+      margin-left: auto;
+      margin-right: auto;
+      width: 80%;
+      padding: 1.5rem;
+      max-width: 50rem;
+      background-color: #ffffff;
+      color: #444444;
+      box-shadow: 0 1px 25px rgba(0, 0, 0, 0.13);
+      border-radius: 6px;
+      line-height: 1.5rem;
+  
+      .form-group {
+        display: flex; 
+        flex-direction: column;
+    
+        .db-item {
+          display: flex;
+          flex-direction: row;
+          flex-grow: 1;
+          margin-bottom: 0.5rem;
+    
+          .db-item-text {
+            margin-left: 1rem;
+            justify-content: left;
+            min-width: 20%;
+            line-height: 2;
+          }
+    
+          .db-item-input {
+            margin-left: 1rem;
+            justify-content: center;
+            input {
+              padding: 0.5rem;
+              border: 1px solid #cccccc;
+              border-radius: 6px;
+            }
+          }
+          .db-item-info {
+            padding-left: 1rem;
+            line-height: 2;
+          }
+        }
+      }
+    }
+  
+    .db-errors {
+      margin-top: 0.5rem;
+      text-align: center;
+      color: #721c24;
+      border: 1px solid red;
+      background-color: #f8d7da;
+      border: 1px solid #f5c6cb; 
+      padding: 0.5rem;
+      border-radius: 6px; 
+      font-size: 0.9rem;
+    }
+    .save-button {
+      padding: 0.5rem 2.5rem;
+      cursor: pointer;
+      border: 1px solid #cccccc;
+      border-radius: 6px;
+    }
+    .save-button:hover {
+      background-color: #e0e0e0;
+    }
+  
+    .button-space {
+      margin-top: 1rem;
+    }
+  
+    .needed {
+      padding: 2rem;
+      margin-top: 1rem;
+  
+      li {
+        padding: 0.5rem;
+      }
+    }
+    .start-btn-wrapper {
+      display: flex;
+      justify-content: center;
+    }
+  
+    .start-btn {
+      margin-top: 1rem;
+      background-color: #f7f7f7;
+      color: #000028;
+      padding: 1rem 2rem;
+      border-radius: 6px;
+      cursor: pointer;
+      border: 1px solid #dddddd;
+      box-shadow: 0 1px 0 #ccc;
+    }
+    .start-btn:hover {
+      background-color: #e0e0e0;
+    }
+  
+    .instructions {
+      padding: 1rem 0;
+    }
+  }
+  
+  
+  
