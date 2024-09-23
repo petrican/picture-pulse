@@ -15,7 +15,15 @@ export const AdminSetup = () => {
         />
       </div>
       <div className={styles["message-box"]}>
-        <div className={styles["welcome"]}>Welcome</div>
+        <div className={styles["welcome-title"]}>Welcome</div>
+
+        <div className={styles["sub-header"]}>Welcome to the Picture Pulse installation process!</div>
+
+        <div className={styles["information-needed"]}>Information needed</div>
+
+        <div className={styles["info-title"]}>Please provide the following informations.</div>
+
+
       </div>
     </div>
   );

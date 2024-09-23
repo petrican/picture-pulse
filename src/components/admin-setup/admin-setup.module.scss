@@ -31,6 +31,28 @@
       box-shadow: 0 1px 25px rgba(0, 0, 0, 0.13);
       border-radius: 6px;
       line-height: 1.5rem;
+
+      .welcome-title {
+        color: #666;
+        font-size: 24px;
+        padding-bottom: 0.5rem;
+        width: 100%;
+        border-bottom: 1px solid #cccccc;
+      }
+
+      .sub-header, .info-title {
+        margin: 1rem 0;
+        font-size: 14px;
+      }
+
+      .information-needed {
+        margin-top: 2rem;
+        color: #666;
+        font-size: 24px;
+        padding-bottom: 0.5rem;
+        width: 100%;
+        border-bottom: 1px solid #cccccc;
+      }
   
       .form-group {
         display: flex; 
