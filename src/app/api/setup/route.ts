@@ -15,7 +15,7 @@ export async function POST(req: Request) {
     dbData.adminSet = true;
     await fs.writeFile(dbFilePath, JSON.stringify(dbData, null, 2));
 
-    return NextResponse.json({ message: 'Admin setup completed successfully!' });
+    return NextResponse.json({ message: 'Admin setup completed successfully!' , status: 200 });
 
   } catch (error) {
     console.error('Error reading or writing database.json', error);

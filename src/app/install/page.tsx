@@ -37,6 +37,8 @@ const Install = () => {
       body: JSON.stringify({ dbHost, dbPort, dbName, dbUser, dbPassword }),
     });
 
+    console.log('RES:', res);
+    
     if (res.ok) {
       router.push("/"); // Redirect to home page after setup
     }

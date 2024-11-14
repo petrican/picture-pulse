@@ -2,6 +2,7 @@
 import React, { useState } from "react";
 import Image from "next/image";
 import styles from "./admin-setup.module.scss";
+import { useRouter } from "next/navigation";
 
 export const AdminSetup = () => {
   const [formData, setFormData] = useState({
@@ -10,9 +11,10 @@ export const AdminSetup = () => {
     sitePassword: "",
     siteEmail: "",
   });
-
+  const router = useRouter();
   const [error, setError] = useState<string | null>(null);
   const [success, setSuccess] = useState<string | null>(null);
+  const [buttonState, setButtonState] = useState(true);
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setFormData({
@@ -40,7 +42,13 @@ export const AdminSetup = () => {
       }
 
       const result = await response.json();
+      
       setSuccess("Installation completed successfully!");
+      if (result.status === 200) {
+        setButtonState(false);
+        setTimeout(() => { window.location.href ="/"; }, 500);
+      }
+
     } catch (error) {
       if (error instanceof Error) {
         setError(error.message); 
@@ -62,19 +70,19 @@ export const AdminSetup = () => {
         />
       </div>
       <form className={styles["message-box"]} onSubmit={handleSubmit}>
-        <div className={styles["welcome-title"]}>Welcome</div>
+        <div className={styles["welcome-title"]}> {!success ? 'Welcome' : 'All right'}</div>
 
-        <div className={styles["sub-header"]}>
+        {!success ? <div className={styles["sub-header"]}>
           Welcome to the <b>Picture Pulse</b> installation process!
-        </div>
+        </div> : null}
 
-        <div className={styles["information-needed"]}>Information needed</div>
+        {!success ? <div className={styles["information-needed"]}>Information needed</div> : null }
 
-        <div className={styles["info-title"]}>
+        {!success ?<div className={styles["info-title"]}>
           Please provide the following information.
-        </div>
+        </div> : null}
 
-        <div className={styles["field-box"]}>
+        {!success ? <div className={styles["field-box"]}>
           <div className={styles["field-title"]}>Site Title</div>
           <div className={styles["input-wrapper"]}>
             <input
@@ -87,9 +95,9 @@ export const AdminSetup = () => {
               required
             />
           </div>
-        </div>
+        </div> : null }
 
-        <div className={styles["field-box"]}>
+        {!success ?  <div className={styles["field-box"]}>
           <div className={styles["field-title"]}>Username</div>
           <div className={styles["input-wrapper"]}>
             <input
@@ -101,9 +109,9 @@ export const AdminSetup = () => {
               required
             />
           </div>
-        </div>
+        </div> : null }
 
-        <div className={styles["field-box"]}>
+        {!success ?  <div className={styles["field-box"]}>
           <div className={styles["field-title"]}>Password</div>
           <div className={styles["input-wrapper"]}>
             <input
@@ -115,9 +123,9 @@ export const AdminSetup = () => {
               required
             />
           </div>
-        </div>
+        </div> : null }
 
-        <div className={styles["field-box"]}>
+        {!success ? <div className={styles["field-box"]}>
           <div className={styles["field-title"]}>Your Email</div>
           <div className={styles["input-wrapper"]}>
             <input
@@ -129,16 +137,16 @@ export const AdminSetup = () => {
               required
             />
           </div>
-        </div>
+        </div> : null}
 
         {error && <div className={styles["db-errors"]}>{error}</div>}
         {success && <div className={styles["success-message"]}>{success}</div>}
 
-        <div className={styles["start-install"]}>
+        { buttonState && (<div className={styles["start-install"]}>
           <button className={styles["save-button"]} type="submit">
             Install PicturePulse
           </button>
-        </div>
+        </div>)}
       </form>
     </div>
   );
