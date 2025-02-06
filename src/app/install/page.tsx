@@ -12,14 +12,13 @@ const Install = () => {
   const [dbPassword, setDbPassword] = useState("");
   const [errorMessage, setError] = useState("");
   const router = useRouter();
-  const searchParams = useSearchParams(); // Access URL search params
+  const searchParams = useSearchParams(); 
 
-  const step = searchParams.get("step"); // Get the value of 'step' from URL
+  const step = searchParams.get("step"); 
 
-  // Create a reference to the first input (dbHost)
+
   const dbHostInputRef = useRef<HTMLInputElement>(null);
 
-  // Use useEffect to focus on the dbHost input when the component mounts
   useEffect(() => {
     if (dbHostInputRef.current) {
       dbHostInputRef.current.focus();
@@ -37,10 +36,9 @@ const Install = () => {
       body: JSON.stringify({ dbHost, dbPort, dbName, dbUser, dbPassword }),
     });
 
-    console.log('RES:', res);
-    
+     
     if (res.ok) {
-      router.push("/"); // Redirect to home page after setup
+      router.push("/"); 
     }
 
     if (res.status === 500) {

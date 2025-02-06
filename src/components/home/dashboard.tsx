@@ -1,8 +1,8 @@
 import React from 'react'
 import Image from 'next/image';
-import styles from './home.module.scss';
+import styles from './dashboard.module.scss';
 
-export const Home = () => {
+export const Dashboard = () => {
   return (
     <main className={styles.main}>
       <div className={styles.description}>
@@ -95,4 +95,4 @@ export const Home = () => {
   )
 }
 
-export default Home;
+export default Dashboard;
