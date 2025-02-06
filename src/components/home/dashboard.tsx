@@ -1,6 +1,7 @@
 import React from 'react'
 import Image from 'next/image';
 import styles from './dashboard.module.scss';
+import LogoutButton from '../logout/logout';
 
 export const Dashboard = () => {
   return (
@@ -10,6 +11,9 @@ export const Dashboard = () => {
           Get started by editing&nbsp;
           <code className={styles.code}>src/app/page.tsx</code>
         </p>
+
+        <LogoutButton />
+
         <div>
           <a
             href="https://vercel.com?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"

@@ -4,7 +4,7 @@ import { useState } from "react";
 import { useRouter } from "next/navigation";
 
 export default function LoginPage() {
-  const [email, setEmail] = useState("");
+  const [username, setUsername] = useState(""); 
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
   const router = useRouter();
@@ -13,17 +13,18 @@ export default function LoginPage() {
     e.preventDefault();
     setError("");
 
-    const res = await fetch("/api/login", {
+    const res = await fetch("/api/auth/login", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ email, password }),
+      body: JSON.stringify({ username, password }), 
     });
 
+    const data = await res.json();
+
     if (res.ok) {
-      router.push("/dashboard");
+      router.push("/");
     } else {
-      const data = await res.json();
-      setError(data.error || "Login failed");
+      setError(data.message || "Login failed");
     }
   };
 
@@ -32,10 +33,10 @@ export default function LoginPage() {
       <h1>Login</h1>
       <form onSubmit={handleLogin}>
         <input
-          type="email"
-          placeholder="Email"
-          value={email}
-          onChange={(e) => setEmail(e.target.value)}
+          type="text"
+          placeholder="Username"
+          value={username}
+          onChange={(e) => setUsername(e.target.value)}
           required
         />
         <input
@@ -45,9 +46,7 @@ export default function LoginPage() {
           onChange={(e) => setPassword(e.target.value)}
           required
         />
-        <button type="submit">
-          Login
-        </button>
+        <button type="submit">Login</button>
       </form>
       {error && <p>{error}</p>}
     </div>
