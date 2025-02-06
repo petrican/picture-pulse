@@ -49,6 +49,9 @@ export default function LoginPage() {
         <button type="submit">Login</button>
       </form>
       {error && <p>{error}</p>}
+
+      <br />
+      <a href="/">Back to main page</a>
     </div>
   );
 }
